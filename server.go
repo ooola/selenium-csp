@@ -1,11 +1,11 @@
 package main
 
 import (
-    "fmt"
-    "net/http"
+	"fmt"
+	"net/http"
 )
 
-var policy = "script-src http: https: 'self' 'unsafe-inline' 'strict-dynamic' 'nonce-0yNME4F15OSPevU+UdZXGg=='";
+var policy = "script-src http: https: 'self' 'unsafe-inline' 'strict-dynamic' 'nonce-0yNME4F15OSPevU+UdZXGg=='"
 var page = `
 <html>
 
@@ -49,12 +49,12 @@ document.addEventListener('DOMContentLoaded', function () {
 `
 
 func handler(w http.ResponseWriter, r *http.Request) {
-    w.Header().Set("Content-Security-Policy-Report-Only", policy)
-    //w.Header().Set("Content-Security-Policy", policy)
-    fmt.Fprintf(w, page)
+	w.Header().Set("Content-Security-Policy-Report-Only", policy)
+	//w.Header().Set("Content-Security-Policy", policy)
+	fmt.Fprintf(w, page)
 }
 
 func main() {
-    http.HandleFunc("/", handler)
-    http.ListenAndServe(":8080", nil)
+	http.HandleFunc("/", handler)
+	http.ListenAndServe(":8080", nil)
 }
