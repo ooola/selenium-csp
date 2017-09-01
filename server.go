@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-var policy = "script-src http: https: 'self' 'unsafe-inline' 'strict-dynamic' 'nonce-0yNME4F15OSPevU+UdZXGg=='"
+var policy = "script-src http: https: 'self' 'unsafe-inline' 'report-sample' 'strict-dynamic' 'nonce-0yNME4F15OSPevU+UdZXGg=='; report-uri http://localhost:8081/report/;"
 var page = `
 <html>
 
